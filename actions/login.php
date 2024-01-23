@@ -7,7 +7,7 @@ require_once '../connection/DbManager.php';
 session_start();
 $email = $_POST["email"];
 $password = $_POST["password"];
-$role_id = $_POST["role_id"];
+$role_id = 1;
 
 
 

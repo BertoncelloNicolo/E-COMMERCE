@@ -54,8 +54,11 @@
     <h2 style="text-align: center; color: #ff00ff;">Login</h2>
     <input type="text" name="email" placeholder="Email" required>
     <input type="password" name="password" placeholder="Password" required>
-    <input type="text" name="role_id" placeholder="role_id" required>
+    <a href="signup.php">Non sei registrato? Registrati</a>
+
     <input type="submit" value="Invio">
+
+
 </form>
 </body>
 

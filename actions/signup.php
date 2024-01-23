@@ -5,7 +5,7 @@ require_once '../models/User.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
 $password_confirmation = $_POST['password-confirmation'];
-$role_id = $_POST["role_id"];
+$role_id = 1;
 
 
 
@@ -24,7 +24,7 @@ $stmt->execute();
 $user = $stmt->fetchObject("user");
 
 if (!$user) {
-    $params = ['email'=>$email, 'password'=>$password, 'role_id'=>$role_id];
+    $params = ['email'=>$email, 'password'=>$password, 'role_id'=>1];
     $user = User::Create($params);
     if ($user) {
         Cart::Create($user->GetId());
@@ -36,7 +36,7 @@ if (!$user) {
     }
 
 } else {
-    header('Location:http://localhost/E-COMMERCE/views/login.php');
+    header('Location:http://localhost/E-COMMERCE/views/signup.php');
     exit();
 
 }

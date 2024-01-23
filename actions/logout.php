@@ -8,10 +8,17 @@ session_start();
 
 $user = $_SESSION['current_user'];
 
-
-if ($user)
+if($user)
 {
-    $_SESSION['current_user'] = null;
-    header('location: ../views/login.php');
-    exit;
+    $userid=$user->getId();
+    try {
+        $sessione = new Session();
+        $sessione->Delete();
+        $_SESSION['current_user'] = null;
+        header('location: ../views/login.php');
+        exit;
+    }catch (PDOException $e)
+    {
+        echo "errore durante logout";
+    }
 }

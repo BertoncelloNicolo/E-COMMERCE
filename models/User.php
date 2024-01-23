@@ -10,7 +10,7 @@ class User
     private $email;
     private $password;
     private $cart_id;
-    private $role_id;
+    private $role_id=1;
     private $session_id;
 
     public function GetID()

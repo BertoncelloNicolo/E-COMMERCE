@@ -68,16 +68,14 @@ class Session
 
     public function Delete()
     {
-
         $pdo = self::Connect();
-        $id = self::getId();
-        $stmt = $pdo->prepare("delete from ecommerce.sessions where id = :id");
-        $stmt->bindParam(":id", $id);
+        $userId = $_SESSION['current_user']->getId();
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.sessions WHERE user_id = :user_id ORDER BY id DESC LIMIT 1");
+        $stmt->bindParam(":user_id", $userId);
+
         if (!$stmt->execute()) {
-            throw new PDOException("errore di cancellazione del record di sessione richiesto");
+            throw new PDOException("errore durante l'eliminazione del record di sessione per l'utente con ID $userId");
         }
-
-
     }
 
     public function getId()

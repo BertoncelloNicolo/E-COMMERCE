@@ -67,7 +67,8 @@
     <input type="password" name="password-confirmation" placeholder="Conferma Password" required>
     <br>
 
-    <input type="text" name="role_id" placeholder="role_id" required>
+    <a href="login.php">Sei già registrato? Accedi</a>
+
     <br>
     <input type="submit" value="Invio">
 </form>

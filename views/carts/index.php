@@ -34,6 +34,7 @@ if ($carrello) {
 
 <body>
 <?php $totale = 0;
+
 foreach ($products as $quantita => $product) { ?>
     <ul>
         <li><?php echo $product->getMarca(); ?></li>
