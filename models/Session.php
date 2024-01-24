@@ -82,5 +82,17 @@ class Session
     {
         return $this->id;
     }
+       public static function FindByUser($userId)
+    {
+        $pdo = self::Connect();
+        $stmt = $pdo->prepare("select * from ecommerce.sessions where userid = :user_id ORDER BY id DESC LIMIT 1");
+        $stmt->bindParam(":user_id", $userId);
+        if ($stmt->execute()) {
+            return $stmt->fetchObject("Session");
+        } else {
+            throw new PDOException("sessione non trovata");
+        }
+
+    }
 
 }
