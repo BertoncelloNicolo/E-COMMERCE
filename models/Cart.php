@@ -88,11 +88,11 @@ class Cart
         $product_id = $this->getProductId();
         $quantita = $this->getQuantita();
         $pdo = self::Connect();
+        throw new Exception($cart_id);
         $stmt = $pdo->prepare("UPDATE ecommerce.cart_products SET quantita = :quantita WHERE cart_id = :cart_id AND product_id = :product_id");
         $stmt->bindParam(":cart_id", $cart_id);
         $stmt->bindParam(":product_id", $product_id);
         $stmt->bindParam(":quantita", $quantita);
-
         return $stmt->execute();
     }
 

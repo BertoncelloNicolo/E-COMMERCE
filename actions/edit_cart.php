@@ -7,16 +7,16 @@ require_once "../models/User.php";
 session_start();
 
 $quantita = $_POST['quantita'];
-$carrello = Cart::FindByUser($_SESSION['current_user']->GetId());
 
 $user = $_SESSION['current_user'];
-
+$carrello = Cart::FindByUser($user->GetId());
 
 
 if ($quantita > 0) {
     $carrello->setQuantita($quantita);
     $carrello->save();
 } else {
+
     $carrello->delete();
 }
 

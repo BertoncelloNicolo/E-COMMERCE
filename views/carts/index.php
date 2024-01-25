@@ -39,14 +39,15 @@ foreach ($products as $quantita => $product) { ?>
     <ul>
         <li><?php echo $product->getMarca(); ?></li>
         <li><?php echo $product->getNome(); ?></li>
-        <li><?php echo $product->getPrezzo(); ?></li>
-        <li><?php echo $quantita; ?></li>
+        <li><?php echo $product->getPrezzo();?></li>
         <li><?php echo $quantita * $product->getPrezzo();
             $totale += $quantita * $product->getPrezzo(); ?></li>
     </ul>
 
     <form action="../../actions/edit_cart.php" method="POST">
-        <input type="hidden" name="id" value="<?php echo $carrello->getId(); ?>"
+        <input type="hidden" name="id" value="<?php echo $carrello->getId(); ?>">
+        <input type="number" name="quantita" placeholder="quantita" min="0" value="<?php echo $quantita ?>">
+        <input type="submit" name="modifica" placeholder="modifica" value="modifica">
     </form>
 <?php } ?>
 

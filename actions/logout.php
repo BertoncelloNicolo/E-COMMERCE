@@ -8,13 +8,11 @@ session_start();
 
 $user = $_SESSION['current_user'];
 
-
 if($user)
 {
-    $user_id = $user -> getId();
-   
+    $userid=$user->getId();
     try {
-        $sessione = Session::FindByUser($user_id);
+        $sessione = new Session();
         $sessione->Delete();
         $_SESSION['current_user'] = null;
         header('location: ../views/login.php');
