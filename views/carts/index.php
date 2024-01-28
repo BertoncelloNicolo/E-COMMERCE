@@ -30,6 +30,62 @@ if ($carrello) {
 <html>
 <head>
     <title>Carrello</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #ff00ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff33ff;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+    </style>
+
 </head>
 
 <body>
