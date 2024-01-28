@@ -23,44 +23,34 @@ foreach ($products as $product) { ?>
 
 
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prodotti</title>
+    <!-- Includi Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #2e2e2e;
-            margin: 0;
-            padding: 0;
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             color: #fff;
+            padding: 20px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 10px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        form {
+        .product-box {
             background-color: #444;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            margin-top: 20px;
+            margin: 10px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
-        form:hover {
+        .product-box:hover {
             background-color: #555;
         }
 
@@ -106,16 +96,18 @@ foreach ($products as $product) { ?>
         }
     </style>
 </head>
-
-
+<body>
 
 <a href="../../actions/logout.php">
-    <button name="logout">Logout</button>
+    <button class="btn btn-primary" name="logout">Logout</button>
 </a>
 
 <a href="../carts/index.php">
-    <button name="carrello">Vai al carrello</button>
+    <button class="btn btn-primary" name="carrello">Vai al carrello</button>
 </a>
+
+
+
 
 
 </body>

@@ -53,6 +53,7 @@ if ($carrello) {
                 list-style-type: none;
                 padding: 0;
             }
+
             background-color: #444;
             padding: 20px;
             border-radius: 8px;
@@ -89,24 +90,31 @@ if ($carrello) {
 </head>
 
 <body>
-<?php $totale = 0;
+<?php $totale = 0; ?>
 
-foreach ($products as $quantita => $product) { ?>
+<?php foreach ($products as $quantita => $product) { ?>
     <ul>
         <li><?php echo $product->getMarca(); ?></li>
         <li><?php echo $product->getNome(); ?></li>
-        <li><?php echo $product->getPrezzo();?></li>
+        <li><?php echo $product->getPrezzo(); ?></li>
         <li><?php echo $quantita * $product->getPrezzo();
             $totale += $quantita * $product->getPrezzo(); ?></li>
     </ul>
 
     <form action="../../actions/edit_cart.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $carrello->getId(); ?>">
+        <input type="hidden" name="product_id" value="<?php echo $product->getId(); ?>">
         <input type="number" name="quantita" placeholder="quantita" min="0" value="<?php echo $quantita ?>">
         <input type="submit" name="modifica" placeholder="modifica" value="modifica">
+
     </form>
 <?php } ?>
 
 <p>Totale carrello: <?php echo $totale; ?></p>
+
+<button style="background-color: #ff00ff; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">
+    <a href="../products/index.php" style="text-decoration: none; color: #fff;">Vai a Prodotti</a>
+</button>
+
 </body>
 </html>

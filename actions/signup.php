@@ -31,6 +31,7 @@ if (!$user) {
         header('Location:http://localhost/E-COMMERCE/views/login.php');
         exit();
     } else {
+
         header('Location:http://localhost/E-COMMERCE/views/signup.php');
         exit();
     }

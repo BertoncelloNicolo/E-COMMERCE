@@ -82,6 +82,8 @@ class Cart
     }
 
 
+
+
     public function save()
     {
         $cart_id = $this->getCartId();
@@ -112,6 +114,27 @@ class Cart
         $stmt->bindParam(":user_id", $user_id);
         $stmt->execute();
         return $stmt->fetchObject('Cart');
+    }
+
+    public function FindProductById($product_id)
+    {
+        $pdo = self::Connect();
+        $cart_id = $this->getId();
+        $stmt = $pdo->prepare("SELECT * FROM ecommerce.cart_products WHERE cart_id=:cart_id AND product_id=:product_id");
+        $stmt->bindParam(":cart_id", $cart_id);
+        $stmt->bindParam(":product_id", $product_id);
+        $stmt->execute();
+        return $stmt->fetchObject('Cart');
+    }
+
+    public function DeleteProduct($product_id)
+    {
+        $pdo = self::Connect();
+        $cart_id = $this->getId();
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE product_id=:product_id AND cart_id=:cart_id");
+        $stmt->bindParam(":cart_id", $cart_id);
+        $stmt->bindParam(":product_id", $product_id);
+        $stmt->execute();
     }
 
     public static function Connect()

@@ -47,6 +47,26 @@ class Product
         $this->marca = $marca;
     }
 
+    public function getProductId()
+    {
+        return $this->product_id;
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->product_id = $product_id;
+    }
+
+    public function getCartId()
+    {
+        return $this->cart_id;
+    }
+
+    public function setCartId($cart_id)
+    {
+        $this->cart_id = $cart_id;
+    }
+
     public static function Find($id)
     {
         $pdo = self::Connect();
@@ -96,10 +116,13 @@ class Product
         }
     }
 
-    public function Delete($id) {
+    public function Delete() {
         $pdo = self::Connect();
-        $stmt = $pdo->prepare("DELETE FROM ecommerce.products WHERE id = :id");
-        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $cart_id = $this->getCartId();
+        $product_id = $this->getProductId();
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE product_id = :product_id AND cart_id = :cart_id");
+        $stmt->bindParam(":product_id", $product_id, PDO::PARAM_INT);
+        $stmt->bindParam(":cart_id", $cart_id, PDO::PARAM_INT);
 
         try {
             if ($stmt->execute()) {
