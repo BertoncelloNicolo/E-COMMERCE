@@ -17,13 +17,11 @@ if ($quantita > 0) {
     $esiste = $carrello->FindProductById($product_id);
 
     if ($esiste) {
-        // se esiste quindi diventa true, aggiorna la quantità
-        $esiste->setQuantita($quantita);
-        $esiste->save();
+        $esiste->setQuantita($quantita); // cerco il prodotto all'interno del carrello e se esiste
+        $esiste->save(); //richiamo il metodo save che andrà a modificare la quantita di quel determinato prodotto in quel determinato carrello
     }
 } else {
-    // se la quantità è 0, elimina il record dalla tabella cart_products
-    $carrello->DeleteProduct($product_id);
+    $carrello->DeleteProduct($product_id); // se la quantità è 0, elimina il record dalla tabella cart_products
 }
 
 header('Location: ../views/carts/index.php');
