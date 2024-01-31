@@ -10,10 +10,7 @@ $user = $_SESSION['current_user'];
 
 if($user)
 {
-    $userid=$user->getId();
     try {
-        $sessione = new Session();
-        $sessione->Delete();
         $_SESSION['current_user'] = null;
         header('location: ../views/login.php');
         exit;
