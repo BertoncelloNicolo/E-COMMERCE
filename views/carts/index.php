@@ -15,10 +15,10 @@ $current_user = $_SESSION['current_user'];
 $carrello = Cart::FindByUser($current_user->GetId());
 
 
-if ($carrello) {
-    $cart_products = $carrello->Find();
-    $products = [];
-    foreach ($cart_products as $cp) {
+if ($carrello) { //controllo se esiste il carrello
+    $cart_products = $carrello->Find(); //assegno a cartproduct un array chiave valore , find va a trovare tutti i prodotti associati a quel carrello quello esistente 
+    $products = []; //creo array vuoto
+    foreach ($cart_products as $cp) {//itera su tutti i prodotti e assegna a array product la chiave che contiene la quantita associata al prodotto corrispondente all'id del prodotto
         $products[$cp->getQuantita()] = Product::Find($cp->getProductId());
     }
 } else {
