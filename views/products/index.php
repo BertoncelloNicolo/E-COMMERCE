@@ -5,6 +5,15 @@ require_once '../../models/User.php';
 
 require_once '../../models/Product.php';
 
+if (isset($_SESSION['current_user'])) {
+    $current_user = $_SESSION['current_user'];
+}
+else
+{
+    header("HTTP/1.1 401 Unauthorized");
+    exit("non autorizzato");
+}
+
 $products = Product::fetchAll();
 
 foreach ($products as $product) { ?>

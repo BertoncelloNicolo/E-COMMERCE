@@ -6,23 +6,28 @@ require_once "../../models/Product.php";
 session_start();
 
 
-if (!isset($_SESSION['current_user'])) {
-    exit(); // l'isset torna true se la condizione è verificata
+if (isset($_SESSION['current_user'])) {
+    $current_user = $_SESSION['current_user'];
+}
+else
+{
+    header("HTTP/1.1 401 Unauthorized");
+    exit("non autorizzato");
 }
 
 
-$current_user = $_SESSION['current_user'];
+
 $carrello = Cart::FindByUser($current_user->GetId());
 
 
 if ($carrello) { //controllo se esiste il carrello
-    $cart_products = $carrello->Find(); //assegno a cartproduct un array chiave valore , find va a trovare tutti i prodotti associati a quel carrello quello esistente 
-    $products = []; //creo array vuoto
+    $cart_products = $carrello->Find(); //assegno a cartproduct un array chiave valore , col find trova tutti i prodotti associati a QUEL carrello
+    $products = []; //array vuoto
     foreach ($cart_products as $cp) {//itera su tutti i prodotti e assegna a array product la chiave che contiene la quantita associata al prodotto corrispondente all'id del prodotto
         $products[$cp->getQuantita()] = Product::Find($cp->getProductId());
     }
 } else {
-
+//json-api
     exit();
 }
 ?>
