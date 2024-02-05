@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION['current_user']) && $_SESSION['current_user']->GetRole_ID()===2) {
+    $current_user = $_SESSION['current_user'];
+}
+else
+{
+    header("HTTP/1.1 401 Unauthorized");
+    exit("utente non autorizzato");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -12,7 +12,7 @@ if (isset($_SESSION['current_user'])) {
 else
 {
     header("HTTP/1.1 401 Unauthorized");
-    exit("non autorizzato");
+    exit("Autenticati prima di visualizzare il carrello");
 }
 
 
@@ -27,7 +27,6 @@ if ($carrello) { //controllo se esiste il carrello
         $products[$cp->getQuantita()] = Product::Find($cp->getProductId());
     }
 } else {
-//json-api
     exit();
 }
 ?>
@@ -39,33 +38,13 @@ if ($carrello) { //controllo se esiste il carrello
         body {
             font-family: Arial, sans-serif;
             background-color: #2e2e2e;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             color: #fff;
+            padding: 20px;
         }
-
 
         li {
             margin-bottom: 10px;
         }
-
-        form {
-            ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-            background-color: #444;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            margin-top: 20px;
-        }
-
         input {
             width: 100%;
             padding: 10px;

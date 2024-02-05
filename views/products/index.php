@@ -11,7 +11,7 @@ if (isset($_SESSION['current_user'])) {
 else
 {
     header("HTTP/1.1 401 Unauthorized");
-    exit("non autorizzato");
+    exit("Autenticati prima di visualizzare i prodotti");
 }
 
 $products = Product::fetchAll();
