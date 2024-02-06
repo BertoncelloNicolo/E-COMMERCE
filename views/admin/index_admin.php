@@ -7,7 +7,7 @@ if (isset($_SESSION['current_user'])) {
 else
 {
     header("HTTP/1.1 401 Unauthorized");
-    exit("Utente senza privilegi: Shopper");
+    exit("Utente non autorizzato");
 }
 ?>
 
