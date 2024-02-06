@@ -8,13 +8,10 @@ session_start();
 
 if (isset($_SESSION['current_user'])) {
     $current_user = $_SESSION['current_user'];
-}
-else
-{
+} else {
     header("HTTP/1.1 401 Unauthorized");
     exit("Autenticati prima di visualizzare il carrello");
 }
-
 
 
 $carrello = Cart::FindByUser($current_user->GetId());
@@ -45,6 +42,7 @@ if ($carrello) { //controllo se esiste il carrello
         li {
             margin-bottom: 10px;
         }
+
         input {
             width: 100%;
             padding: 10px;
@@ -74,9 +72,10 @@ if ($carrello) { //controllo se esiste il carrello
 </head>
 
 <body>
-<?php $totale = 0; ?>
 
-<?php foreach ($products as $quantita => $product) { ?>
+<?php $totale = 0;
+
+foreach ($products as $quantita => $product) { ?>
     <ul>
         <li><?php echo $product->getMarca(); ?></li>
         <li><?php echo $product->getNome(); ?></li>

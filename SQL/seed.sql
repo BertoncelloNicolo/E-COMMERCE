@@ -11,10 +11,8 @@ values ("shopper", "utente base"),
        ("admin", "utente privilegiato");
 
 insert into ecommerce.users(email, password, role_id)
-values ('alice@gmail.com', 'password123', 1),
-       ('bob@gmail.com','qwerty456', 2),
-       ('charlie@outlook.com', 'letmein789', 2),
-       ('david@libero.it','pass1234', 1);
+values ('utente@gmail.com', 'a', 1),
+       ('admin@gmail.com','admin', 2);
 
 INSERT INTO ecommerce.carts (id) VALUES (DEFAULT)
 

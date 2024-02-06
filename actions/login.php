@@ -9,9 +9,6 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $role_id = 1;
 
-
-
-
 $pdo = DbManager::Connect("ecommerce");
 
 $stmt = $pdo->prepare("SELECT id, email, password FROM ecommerce.users WHERE email = :email AND password = :password LIMIT 1");
@@ -37,8 +34,5 @@ if (!$user) {
     exit;
 }
 
-
-
-?>
 
 

@@ -28,4 +28,3 @@ if ($quantita > 0) {
 
 header('Location: ../views/carts/index.php');
 exit;
-?>

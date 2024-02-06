@@ -24,4 +24,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
 } else {
     echo "Errore: ID del prodotto non fornito.";
 }
-?>

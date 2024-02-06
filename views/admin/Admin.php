@@ -69,5 +69,3 @@ class Admin
         return DbManager::Connect("ecommerce");
     }
 }
-
-?>
