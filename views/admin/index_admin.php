@@ -1,11 +1,13 @@
 <?php
-if (isset($_SESSION['current_user']) && $_SESSION['current_user']->GetRole_ID()===2) {
+session_start();
+
+if (isset($_SESSION['current_user'])) {
     $current_user = $_SESSION['current_user'];
 }
 else
 {
     header("HTTP/1.1 401 Unauthorized");
-    exit("utente non autorizzato");
+    exit("Utente senza privilegi: Shopper");
 }
 ?>
 
@@ -67,6 +69,9 @@ else
 
 <form action="../admin/elimina.php" method="POST">
     <button type="submit">Elimina prodotto</button>
+</form>
+<form action="../../actions/logout.php" method="POST">
+    <button type="submit">Effettua logout</button>
 </form>
 
 </body>

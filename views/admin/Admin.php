@@ -4,7 +4,6 @@ require_once('../../models/Product.php');
 
 class Admin
 {
-
     public static function Find($id)
     {
         $pdo = self::Connect();
