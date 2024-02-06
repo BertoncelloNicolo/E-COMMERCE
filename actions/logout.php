@@ -10,8 +10,7 @@ $user = $_SESSION['current_user'];
 
 if ($user) {
     try {
-        session_destroy();
-        $_SESSION['current_user'] = null;
+        $_SESSION = null;
         header('location: ../views/login.php');
         exit;
     } catch (PDOException $e) {
