@@ -11,4 +11,3 @@ values ("shopper", "utente base"),
        ("admin", "utente privilegiato");
 
 INSERT INTO ecommerce.carts (id) VALUES (DEFAULT)
-
