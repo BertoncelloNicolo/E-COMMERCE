@@ -1,13 +1,16 @@
 <?php
+
+include_once "../../models/User.php";
+
 session_start();
 
-if (isset($_SESSION['current_user'])) {
+if (isset($_SESSION['current_user']) && $_SESSION['current_user'] -> GetRole_ID()==2) {
     $current_user = $_SESSION['current_user'];
 }
 else
 {
     header("HTTP/1.1 401 Unauthorized");
-    exit("Utente non autorizzato");
+    exit("Utente senza privilegi: Shopper");
 }
 ?>
 
